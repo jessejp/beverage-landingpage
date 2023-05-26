@@ -1,0 +1,79 @@
+<div class="big bubble bub1"></div>
+<div class="medium bubble bub1"></div>
+<div class="small bubble bub1"></div>
+<div class="big bubble bub2"></div>
+<div class="medium bubble bub2"></div>
+<div class="small bubble bub2"></div>
+
+<style>
+  .bubble {
+    opacity: 0;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBubble 6s cubic-bezier(0.21, 0.04, 1, 1) infinite,
+      appearBubble 6s linear infinite;
+  }
+
+  .bubble.bub1 {
+    animation-delay: 0s;
+  }
+  .bubble.bub2 {
+    animation-delay: 2s;
+  }
+
+  .bubble.big {
+    width: 60px;
+    height: 60px;
+    background: url("https://place-puppy.com/60x60?f=png");
+  }
+  .bubble.medium {
+    width: 45px;
+    height: 45px;
+    background: url("https://place-puppy.com/45x45?f=png");
+  }
+  .bubble.small {
+    width: 30px;
+    height: 30px;
+    background: url("https://place-puppy.com/30x30?f=png");
+  }
+  .bubble.big.bub1 {
+    translate: -10vw 0vh;
+  }
+  .bubble.medium.bub1 {
+    translate: 10vw 20vh;
+  }
+  .bubble.small.bub1 {
+    translate: 5vw 8vh;
+  }
+  .bubble.big.bub2 {
+    translate: 25vw -10vh;
+  }
+  .bubble.medium.bub2 {
+    translate: -5vw -20vh;
+  }
+  .bubble.small.bub2 {
+    translate: 15vw -18vh;
+  }
+
+  @keyframes floatBubble {
+    0% {
+      transform: translateY(25vh) scale(1);
+    }
+    100% {
+      transform: translateY(-50vh) scale(2);
+    }
+  }
+
+  @keyframes appearBubble {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
