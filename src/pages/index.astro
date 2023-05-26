@@ -1,33 +1,58 @@
 ---
 import Bubbles from "../components/Bubbles.astro";
 import Layout from "../layouts/Layout.astro";
+import Canvas3D from "../components/Canvas3D.jsx";
 ---
 
 <Layout title="Tropical Tango">
   <main>
     <section class="hero half-n-half">
-      <div class="content">
+      <div class="content text-container">
         <h1>Tropical Tango</h1>
         <p>
           Experience the perfect harmony of succulent watermelon and luscious
           mango in every refreshing sip.
         </p>
-        <button> Try Tropical Tango Today</button>
+        <button>Try Tropical Tango Today</button>
       </div>
-      <div class="content">
-        <img src="https://place-puppy.com/150x300?f=png" alt="Tropical Tango" />
+      <div class="content img-container">
+        <Canvas3D client:load />
+        <div class="gradient"></div>
       </div>
-      <Bubbles />
+      <Bubbles
+        delay="0.0s"
+        offset={{
+          big: "15vw 0vh",
+          medium: "34vw 10vh",
+          small: "0vw 20vh",
+        }}
+      />
+      <Bubbles
+        delay="1.9s"
+        offset={{
+          big: "-6vw 10vh",
+          medium: "12vw -10vh",
+          small: "23vw 0vh",
+        }}
+      />
+      <Bubbles
+        delay="3.0s"
+        offset={{
+          big: "30vw -20vh",
+          medium: "0vw 0vh",
+          small: "26vw 5vh",
+        }}
+      />
     </section>
     <section class="variation2 half-n-half">
-      <div>
+      <div class="img-container">
         <img
           src="https://placedog.net/200/300?random"
           alt="OrangeMocha Magic"
         />
       </div>
-      <div>
-        <h1>Savor the Magic</h1>
+      <div class="text-container">
+        <h2>Savor the Magic</h2>
         <p>
           Embrace the enchantment and surrender your senses to the symphony of
           orange and chocolate. Whether you're seeking a moment of indulgence or
@@ -49,6 +74,44 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+  h1,
+  h2 {
+    font-family: Impact;
+    text-shadow: 2px 2px 1px black;
+    margin: 0;
+  }
+  h1,
+  h2 {
+    font-size: 5em;
+    color: #ffcb77;
+  }
+
+  h2 {
+    font-size: 4em;
+    color: #fff;
+  }
+
+  p {
+    font-size: 1.25em;
+  }
+  button {
+    background: #fef9ef;
+    border: black 2px solid;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.25em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: black 5px 5px 1px;
+  }
+  button:hover {
+    background: #ffffff;
+  }
+  button:active {
+    transform: translateY(2px);
+    box-shadow: black 3px 3px 1px;
+  }
+
   section.half-n-half {
     display: flex;
     justify-content: space-evenly;
@@ -57,6 +120,29 @@ import Layout from "../layouts/Layout.astro";
   section.half-n-half div {
     max-width: 50%;
   }
+  @media only screen and (max-width: 768px) {
+    section.half-n-half {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    section.half-n-half div {
+      max-width: 100%;
+      max-height: 50vh;
+    }
+
+    .half-n-half .img-container {
+      order: 1;
+    }
+    .half-n-half .text-container {
+      order: 2;
+    }
+  }
+
+  .half-n-half .img-container {
+    position: relative;
+    height: 100%;
+  }
+
   .hero {
     background: #17c3b2;
     height: 100vh;
@@ -68,10 +154,13 @@ import Layout from "../layouts/Layout.astro";
   .hero .content {
     z-index: 1;
   }
-
   .variation2 {
     height: 50vh;
     background: #ffcb77;
+  }
+
+  section {
+    padding: 2em 1em;
   }
 
   section.center {
@@ -83,5 +172,6 @@ import Layout from "../layouts/Layout.astro";
   section.interlude {
     height: 50vh;
     background: #fef9ef;
+    padding: 2em 0;
   }
 </style>

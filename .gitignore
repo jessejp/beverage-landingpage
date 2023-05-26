@@ -6,6 +6,7 @@ dist/
 
 # dependencies
 node_modules/
+blender_project
 
 # logs
 npm-debug.log*
