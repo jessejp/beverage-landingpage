@@ -68,16 +68,99 @@ import Canvas3D from "../components/Canvas3D.jsx";
         Discover the enchantment today and embark on a journey of pure flavor
         bliss that will leave you craving more.
       </p>
-      <img src="https://placedog.net/300/300?random" alt="Made Fresh" />
+      <div class="three-columns">
+        <div class="icons-col">
+          <div class="row left">
+            <div class="icon-container"><span class="icon">😂</span></div>
+            <div class="text-container">
+              <h3>Enjoy!</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+          <div class="row left">
+            <div class="icon-container"><span class="icon">🍏</span></div>
+            <div class="text-container">
+              <h3>Enjoy!</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+          <div class="row left">
+            <div class="icon-container"><span class="icon">🥱</span></div>
+            <div class="text-container">
+              <h3>Yooo, how good is this?</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+        </div>
+        <img src="https://placedog.net/300/300?random" alt="Made Fresh" />
+        <div class="icons-col">
+          <div class="row right">
+            <div class="icon-container"><span class="icon">🧉</span></div>
+            <div class="text-container">
+              <h3>Have fun in the sun!</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+          <div class="row right">
+            <div class="icon-container"><span class="icon">🍏</span></div>
+            <div class="text-container">
+              <h3>Enjoy!</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+          <div class="row right">
+            <div class="icon-container"><span class="icon">🤠</span></div>
+            <div class="text-container">
+              <h3>Yeehaw</h3>
+              <p>I am just testing some copy here!</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+  <footer><p>Footer</p></footer>
 </Layout>
 
 <style>
+  .interlude .three-columns {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .interlude .three-columns .icons-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+  .interlude .three-columns .icons-col .row {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  .row .icon-container {
+    background: #17c3b2;
+    padding: 0.5em;
+    border-radius: 25%;
+  }
+  .row .icon-container .icon {
+    font-size: 2rem;
+  }
+
+  .row .text-container {
+    text-align: start;
+  }
+  .row .text-container p {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
   h1,
-  h2 {
-    font-family: Impact;
-    text-shadow: 2px 2px 1px black;
+  h2, h3 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
     margin: 0;
   }
   h1,
@@ -87,12 +170,12 @@ import Canvas3D from "../components/Canvas3D.jsx";
   }
 
   h2 {
-    font-size: 4em;
-    color: #fff;
+    font-size: calc(2.5em + 1vw);
+    color: #fef9ef;
   }
 
   p {
-    font-size: 1.25em;
+    font-size: 1.25rem;
   }
   button {
     background: #fef9ef;
@@ -154,6 +237,10 @@ import Canvas3D from "../components/Canvas3D.jsx";
   .hero .content {
     z-index: 1;
   }
+  .hero .content.text-container > * {
+    width: fit-content;
+    margin-left: 2rem;
+  }
   .variation2 {
     height: 50vh;
     background: #ffcb77;
@@ -167,11 +254,16 @@ import Canvas3D from "../components/Canvas3D.jsx";
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   section.interlude {
     height: 50vh;
-    background: #fef9ef;
-    padding: 2em 0;
+    background: #b8ad95;
+  }
+
+  footer {
+    height: 200px;
+    text-align: center;
   }
 </style>
