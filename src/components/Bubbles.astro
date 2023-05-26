@@ -3,9 +3,9 @@ const { delay = "0.0s", offset } = Astro.props;
 const { big, medium, small } = offset;
 ---
 
-<div class="big bubble"></div>
-<div class="medium bubble"></div>
-<div class="small bubble"></div>
+<div class="big bubble"><img src="./assets/bubble.png" /></div>
+<div class="medium bubble"><img src="./assets/bubble.png" /></div>
+<div class="small bubble"><img src="./assets/bubble.png" /></div>
 
 <style define:vars={{ delay, big, medium, small }}>
   .bubble {
@@ -18,20 +18,22 @@ const { big, medium, small } = offset;
     animation-delay: var(--delay);
   }
 
+  .bubble img {
+    width: 100%;
+    filter: hue-rotate(320deg)
+  }
+
   .bubble.big {
     width: 60px;
     height: 60px;
-    background: url("https://place-puppy.com/60x60?f=png");
   }
   .bubble.medium {
     width: 45px;
     height: 45px;
-    background: url("https://place-puppy.com/45x45?f=png");
   }
   .bubble.small {
     width: 30px;
     height: 30px;
-    background: url("https://place-puppy.com/30x30?f=png");
   }
 
   .bubble.big {
@@ -58,7 +60,7 @@ const { big, medium, small } = offset;
       opacity: 0;
     }
     50% {
-      opacity: 0.5;
+      opacity: 1;
     }
     100% {
       opacity: 0;
