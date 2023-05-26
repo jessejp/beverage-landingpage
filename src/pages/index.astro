@@ -4,7 +4,78 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Tropical Tango">
   <main>
+    <section class="hero half-n-half">
+      <div>
+        <h1>Tropical Tango</h1>
+        <p>
+          Experience the perfect harmony of succulent watermelon and luscious
+          mango in every refreshing sip.
+        </p>
+        <button> Try Tropical Tango Today</button>
+      </div>
+      <div>
+        <img src="https://place-puppy.com/150x300?f=png" alt="Tropical Tango" />
+      </div>
+    </section>
+    <section class="variation2 half-n-half">
+      <div>
+        <img
+          src="https://placedog.net/200/300?random"
+          alt="OrangeMocha Magic"
+        />
+      </div>
+      <div>
+        <h1>Savor the Magic</h1>
+        <p>
+          Embrace the enchantment and surrender your senses to the symphony of
+          orange and chocolate. Whether you're seeking a moment of indulgence or
+          a delightful pick-me-up, OrangeMocha Magic is the perfect companion to
+          add a touch of magic to your day.
+        </p>
+        <button>Discover Now</button>
+      </div>
+    </section>
+    <section class="interlude center">
+      <h2>Embrace the enchantment and surrender your senses</h2>
+      <p>
+        Discover the enchantment today and embark on a journey of pure flavor
+        bliss that will leave you craving more.
+      </p>
+      <img src="https://placedog.net/300/300?random" alt="Made Fresh" />
+    </section>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  section.half-n-half {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  section.half-n-half div {
+    max-width: 50%;
+  }
+  .hero {
+    background: #17c3b2;
+    height: 100vh;
+  }
+  .hero img {
+    rotate: -25deg;
+  }
+
+  .variation2 {
+    height: 50vh;
+	background: #FFCB77;
+  }
+
+  section.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section.interlude {
+    height: 50vh;
+	background: #FEF9EF;
+  }
+</style>
