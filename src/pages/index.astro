@@ -2,6 +2,7 @@
 import Bubbles from "../components/Bubbles.astro";
 import Layout from "../layouts/Layout.astro";
 import Canvas3D from "../components/Canvas3D.jsx";
+import CarouselSection from "../layouts/CarouselSection.astro";
 ---
 
 <Layout title="Tropical Tango">
@@ -118,11 +119,13 @@ import Canvas3D from "../components/Canvas3D.jsx";
         </div>
       </div>
     </section>
+    <CarouselSection />
+
   </main>
   <footer><p>Footer</p></footer>
 </Layout>
 
-<style>
+<style is:global>
   .interlude .three-columns {
     display: flex;
     width: 100vw;
@@ -158,8 +161,9 @@ import Canvas3D from "../components/Canvas3D.jsx";
   }
 
   h1,
-  h2, h3 {
-    font-family: 'Courier New', Courier, monospace;
+  h2,
+  h3 {
+    font-family: "Courier New", Courier, monospace;
     font-weight: 900;
     margin: 0;
   }
@@ -228,7 +232,7 @@ import Canvas3D from "../components/Canvas3D.jsx";
 
   .hero {
     background: #17c3b2;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
   }
   .hero img {
@@ -242,7 +246,7 @@ import Canvas3D from "../components/Canvas3D.jsx";
     margin-left: 2rem;
   }
   .variation2 {
-    height: 50vh;
+    min-height: 50vh;
     background: #ffcb77;
   }
 
@@ -258,7 +262,7 @@ import Canvas3D from "../components/Canvas3D.jsx";
   }
 
   section.interlude {
-    height: 50vh;
+    min-height: 50vh;
     background: #b8ad95;
   }
 

@@ -1,0 +1,44 @@
+---
+const { name, image } = Astro.props;
+---
+
+<div class="slide">
+  <div class="slide-element">
+    <h3 class="slide-heading">{name}</h3>
+    <img src={image} alt={name} />
+  </div>
+</div>
+
+<style>
+  .slide-heading {
+    position: absolute;
+    top: 0.5em;
+    width: 100%;
+    font-size: 2.5em;
+    color: #fff;
+  }
+  .slide {
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 calc(100vw / 3);
+  }
+
+  @media (max-width: 768px) {
+    .slide {
+      flex: 0 0 100vw;
+    }
+  }
+
+  .slide img {
+    height: 100%;
+  }
+
+  .slide-element {
+    width: 100%;
+    height: 100%;
+  }
+</style>

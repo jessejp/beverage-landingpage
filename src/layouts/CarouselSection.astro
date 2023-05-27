@@ -1,0 +1,143 @@
+---
+import Slide from "../components/Slide.astro";
+
+const slides = [
+  {
+    name: "Slide 1",
+    color: "#ffff00",
+    image: "https://placedog.net/450/600?id=1",
+  },
+  {
+    name: "Slide 2",
+    color: "#0000ff",
+    image: "https://placedog.net/450/600?id=2",
+  },
+  {
+    name: "Slide 3",
+    color: "#ffff00",
+    image: "https://placedog.net/450/600?id=3",
+  },
+  {
+    name: "Slide 4",
+    color: "#0000ff",
+    image: "https://placedog.net/450/600?id=4",
+  },
+  {
+    name: "Slide 5",
+    color: "#ffff00",
+    image: "https://placedog.net/450/600?id=5",
+  },
+  {
+    name: "Slide 6",
+    color: "#0000ff",
+    image: "https://placedog.net/450/600?id=6",
+  },
+];
+const slidesAmount = slides.length;
+---
+
+<section class="center interlude">
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      {slides.map((slide) => <Slide {...slide} />)}
+    </div>
+  </div>
+
+  <style is:global>
+    .carousel-wrapper {
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.2s ease;
+    }
+  </style>
+
+  <script>
+    const carousel: HTMLElement = document.querySelector(".carousel");
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("touchstart", dragStart);
+    carousel.addEventListener("mouseup", dragEnd);
+    carousel.addEventListener("touchend", dragEnd);
+    carousel.addEventListener("mousemove", drag);
+    carousel.addEventListener("touchmove", drag);
+
+    function dragStart(event) {
+      event.preventDefault();
+      if (event.type === "touchstart") {
+        startPos = event.touches[0].clientX;
+      } else {
+        startPos = event.clientX;
+        document.body.style.cursor = "grabbing";
+      }
+      isDragging = true;
+      prevTranslate = currentTranslate;
+    }
+
+    function drag(event) {
+      if (isDragging) {
+        let currentPosition = 0;
+        if (event.type === "touchmove") {
+          currentPosition = event.touches[0].clientX;
+        } else {
+          currentPosition = event.clientX;
+        }
+        const diff = currentPosition - startPos;
+        currentTranslate = prevTranslate + diff;
+        snapToSlide();
+      }
+    }
+
+    function dragEnd() {
+      isDragging = false;
+      document.body.style.cursor = "grab";
+    }
+
+    function updateCarouselPosition() {
+      carousel.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function smoothTransition() {
+      updateCarouselPosition();
+    }
+
+    function snapToSlide() {
+      const slideWidth: HTMLElement = carousel.querySelector(".slide");
+      const slideWidthOffset = slideWidth.offsetWidth;
+
+      const slidesAmount = carousel.querySelectorAll(".slide").length;
+      // Division by 1 returns too large of a value, so we divide by half of 3
+      const breakPoint = window.innerWidth === slideWidthOffset ? 1.5 : 3;
+      const minRange = 0;
+      const maxRange =
+        (-slideWidthOffset * slidesAmount) / breakPoint -
+        slideWidthOffset;
+
+      const newPosition =
+        Math.round(currentTranslate / slideWidthOffset) * slideWidthOffset;
+
+      if (newPosition > minRange) {
+        currentTranslate = minRange;
+      } else if (newPosition < maxRange) {
+        currentTranslate = maxRange;
+      } else {
+        currentTranslate = newPosition;
+      }
+      smoothTransition();
+    }
+
+    carousel.addEventListener("transitionend", snapToSlide);
+    window.addEventListener("resize", snapToSlide);
+
+    // Optional: Auto-rotate slides every 3 seconds
+    // setInterval(nextSlide, 3000);
+  </script>
+</section>
