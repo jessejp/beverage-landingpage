@@ -120,17 +120,20 @@ import CarouselSection from "../layouts/CarouselSection.astro";
       </div>
     </section>
     <CarouselSection />
-
   </main>
   <footer><p>Footer</p></footer>
 </Layout>
 
 <style>
+  main {
+    overflow: auto;
+  }
   .interlude .three-columns {
     display: flex;
     width: 100vw;
     justify-content: space-evenly;
     align-items: center;
+    gap: 2em;
   }
 
   .interlude .three-columns .icons-col {
@@ -223,6 +226,11 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     .half-n-half .text-container {
       order: 2;
     }
+
+    .three-columns {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
 
   .half-n-half .img-container {
@@ -232,7 +240,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
 
   .hero {
     background: #17c3b2;
-    min-height: 100vh;
+    height: 100vh;
     overflow: hidden;
   }
   .hero img {
@@ -246,7 +254,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     margin-left: 2rem;
   }
   .variation2 {
-    min-height: 50vh;
+    height: 75vh;
     background: #ffcb77;
   }
 
@@ -262,7 +270,6 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   }
 
   section.interlude {
-    min-height: 50vh;
     background: #b8ad95;
   }
 

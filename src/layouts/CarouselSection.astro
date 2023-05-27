@@ -71,7 +71,6 @@ const slidesAmount = slides.length;
     carousel.addEventListener("touchmove", drag);
 
     function dragStart(event) {
-      event.preventDefault();
       if (event.type === "touchstart") {
         startPos = event.touches[0].clientX;
       } else {
@@ -101,14 +100,6 @@ const slidesAmount = slides.length;
       document.body.style.cursor = "grab";
     }
 
-    function updateCarouselPosition() {
-      carousel.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function smoothTransition() {
-      updateCarouselPosition();
-    }
-
     function snapToSlide() {
       const slideWidth: HTMLElement = carousel.querySelector(".slide");
       const slideWidthOffset = slideWidth.offsetWidth;
@@ -118,8 +109,7 @@ const slidesAmount = slides.length;
       const breakPoint = window.innerWidth === slideWidthOffset ? 1.5 : 3;
       const minRange = 0;
       const maxRange =
-        (-slideWidthOffset * slidesAmount) / breakPoint -
-        slideWidthOffset;
+        (-slideWidthOffset * slidesAmount) / breakPoint - slideWidthOffset;
 
       const newPosition =
         Math.round(currentTranslate / slideWidthOffset) * slideWidthOffset;
@@ -131,7 +121,8 @@ const slidesAmount = slides.length;
       } else {
         currentTranslate = newPosition;
       }
-      smoothTransition();
+
+      carousel.style.transform = `translateX(${currentTranslate}px)`;
     }
 
     carousel.addEventListener("transitionend", snapToSlide);
