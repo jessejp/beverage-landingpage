@@ -132,7 +132,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     display: flex;
     width: 100vw;
     min-height: 50vh;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     gap: 2em;
   }
@@ -173,12 +173,12 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   }
   h1,
   h2 {
-    font-size: 5em;
+    font-size: min(4em, calc(2em + 7vw));
     color: #ffcb77;
   }
 
   h2 {
-    font-size: calc(2.5em + 1vw);
+    font-size: min(2.5em, calc(2em + 3vw));
     color: #fef9ef;
   }
 
@@ -214,7 +214,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   .half-n-half .img-container {
     position: relative;
     height: 100%;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,9 +231,11 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   .hero .content {
     z-index: 1;
   }
+  .hero .content.text-container {
+    margin: 0 2vw;
+  }
   .hero .content.text-container > * {
     width: fit-content;
-    margin-left: 2rem;
   }
   .variation2 {
     min-height: 75vh;
@@ -252,7 +254,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     text-align: center;
   }
 
-  section.interlude{
+  section.interlude {
     background: #b8ad95;
   }
 
@@ -280,14 +282,19 @@ import CarouselSection from "../layouts/CarouselSection.astro";
 
     .three-columns {
       flex-direction: column;
-      justify-content: flex-start;
     }
-    .row {
+    .interlude .three-columns .icons-col {
       order: 1;
+      gap: 2em;
     }
-    .row:nth-child(odd) {
+    .three-columns img {
+      order: 2;
+    }
+    .icons-col:first-child .row:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+    .icons-col:last-child .row:nth-child(even) {
       flex-direction: row-reverse;
     }
   }
-
 </style>
