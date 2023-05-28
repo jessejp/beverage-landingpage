@@ -1,15 +1,15 @@
 ---
 const { name, image } = Astro.props;
+const backgroundImage = `url("${image}")`;
 ---
 
 <div class="slide">
   <div class="slide-element">
-    <h3 class="slide-heading">{name}</h3>
-    <img src={image} alt={name} />
+    <h3 class="slide-heading"><a href="#">{name}</a></h3>
   </div>
 </div>
 
-<style>
+<style define:vars={{ backgroundImage }}>
   .slide-heading {
     position: absolute;
     top: 0.5em;
@@ -17,27 +17,29 @@ const { name, image } = Astro.props;
     font-size: 2.5em;
     color: #fff;
   }
+  .slide-heading a {
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+  }
   .slide {
     position: relative;
     box-sizing: border-box;
     text-align: center;
-    height: 50vh;
     display: flex;
     justify-content: center;
-    flex: 0 0 calc(100vw / 3);
+    flex: 0 0 calc(100% / 3);
+    height: 40em;
+    background-image: var(--backgroundImage);
+    background-repeat: no-repeat;
+    background-size: 100% cover;
+    background-position: center center;
   }
 
   @media (max-width: 768px) {
     .slide {
       flex: 0 0 100vw;
-      height: 100%;
-      width: auto;
     }
-  }
-
-  .slide img {
-    height: auto;
-    width: 100%;
   }
 
   .slide-element {

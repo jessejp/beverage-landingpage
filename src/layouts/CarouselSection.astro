@@ -38,21 +38,47 @@ const slidesAmount = slides.length;
 
 <section class="center interlude">
   <div class="carousel-wrapper">
+    <div class="slide-button-container prev">
+      <button>←</button>
+    </div>
     <div class="carousel">
       {slides.map((slide) => <Slide {...slide} />)}
+    </div>
+    <div class="slide-button-container next">
+      <button>→</button>
     </div>
   </div>
 
   <style>
     .carousel-wrapper {
-      width: 100vw;
-      overflow: hidden;
       position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
+      background: #fff;
+    }
+
+    .slide-button-container {
+      width: 10vw;
+      background: inherit;
+      position: absolute;
+      height: 32em;
+      z-index: 1;
+    }
+
+    .slide-button-container.prev {
+      left: 0;
+    }
+    .slide-button-container.next {
+      right: 0;
     }
 
     .carousel {
       display: flex;
       transition: transform 0.2s ease;
+      width: 80vw;
+      height: 32em;
     }
   </style>
 
@@ -106,7 +132,7 @@ const slidesAmount = slides.length;
 
       const slidesAmount = carousel.querySelectorAll(".slide").length;
       // Division by 1 returns too large of a value, so we divide by half of 3
-      const breakPoint = window.innerWidth === slideWidthOffset ? 1.5 : 3;
+      const breakPoint = carousel.offsetWidth === slideWidthOffset ? 1.5 : 3;
       const minRange = 0;
       const maxRange =
         (-slideWidthOffset * slidesAmount) / breakPoint - slideWidthOffset;
