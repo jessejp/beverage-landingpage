@@ -21,6 +21,14 @@ import CarouselSection from "../layouts/CarouselSection.astro";
         <div class="gradient"></div>
       </div>
       <Bubbles
+        delay="2.0s"
+        offset={{
+          big: "-25vw -5vh",
+          medium: "-34vw 5vh",
+          small: "-24vw 20vh",
+        }}
+      />
+      <Bubbles
         delay="0.0s"
         offset={{
           big: "15vw 0vh",
@@ -32,27 +40,27 @@ import CarouselSection from "../layouts/CarouselSection.astro";
         delay="1.9s"
         offset={{
           big: "-6vw 10vh",
-          medium: "12vw -10vh",
+          medium: "12vw -2vh",
           small: "23vw 0vh",
         }}
       />
       <Bubbles
         delay="3.0s"
         offset={{
-          big: "30vw -20vh",
+          big: "30vw -4vh",
           medium: "0vw 0vh",
           small: "26vw 5vh",
         }}
       />
     </section>
     <section class="variation2 half-n-half">
-      <div class="img-container">
+      <div class="img-container content">
         <img
           src="https://placedog.net/500/500?random"
           alt="OrangeMocha Magic"
         />
       </div>
-      <div class="text-container">
+      <div class="text-container content">
         <h2>Savor the Magic</h2>
         <p>
           Embrace the enchantment and surrender your senses to the symphony of
@@ -173,12 +181,12 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   }
   h1,
   h2 {
-    font-size: min(4em, calc(2em + 7vw));
+    font-size: min(calc(2em + 8vw), calc(4em + 4vw));
     color: #ffcb77;
   }
 
   h2 {
-    font-size: min(2.5em, calc(2em + 3vw));
+    font-size: min(calc(2em + 3vw), calc(2.5em + 3vw));
     color: #fef9ef;
   }
 
@@ -208,8 +216,9 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     justify-content: space-evenly;
     align-items: center;
   }
-  section.half-n-half div {
+  section.half-n-half .content {
     max-width: 50%;
+    width: 50%;
   }
   .half-n-half .img-container {
     position: relative;
@@ -263,13 +272,14 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     text-align: center;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1200px) {
     section.half-n-half {
       flex-direction: column;
       justify-content: flex-start;
     }
-    section.half-n-half div {
+    section.half-n-half .content {
       max-width: 100%;
+      width: 100%;
       min-height: 50vh;
     }
 

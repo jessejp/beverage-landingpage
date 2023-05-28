@@ -18,6 +18,7 @@ const Can3D = (props) => {
     const elapsedTime = state.clock.getElapsedTime();
     canGroup.current.rotation.y = Math.sin(elapsedTime*0.6) * 0.8 - 0.3;
     canGroup.current.rotation.x = Math.sin(elapsedTime*2) * 0.1;
+    // canGroup.current.position.z = Math.sin(elapsedTime*0.6) * 0.3;
   });
 
   return (
