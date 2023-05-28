@@ -48,7 +48,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     <section class="variation2 half-n-half">
       <div class="img-container">
         <img
-          src="https://placedog.net/200/300?random"
+          src="https://placedog.net/500/500?random"
           alt="OrangeMocha Magic"
         />
       </div>
@@ -131,6 +131,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   .interlude .three-columns {
     display: flex;
     width: 100vw;
+    min-height: 50vh;
     justify-content: space-evenly;
     align-items: center;
     gap: 2em;
@@ -139,7 +140,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   .interlude .three-columns .icons-col {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 4em;
   }
   .interlude .three-columns .icons-col .row {
     display: flex;
@@ -210,32 +211,13 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   section.half-n-half div {
     max-width: 50%;
   }
-  @media only screen and (max-width: 768px) {
-    section.half-n-half {
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    section.half-n-half div {
-      max-width: 100%;
-      max-height: 50vh;
-    }
-
-    .half-n-half .img-container {
-      order: 1;
-    }
-    .half-n-half .text-container {
-      order: 2;
-    }
-
-    .three-columns {
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-  }
-
   .half-n-half .img-container {
     position: relative;
     height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero {
@@ -254,7 +236,8 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     margin-left: 2rem;
   }
   .variation2 {
-    height: 75vh;
+    min-height: 75vh;
+    height: auto;
     background: #ffcb77;
   }
 
@@ -277,4 +260,34 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     height: 200px;
     text-align: center;
   }
+
+  @media only screen and (max-width: 768px) {
+    section.half-n-half {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    section.half-n-half div {
+      max-width: 100%;
+      min-height: 50vh;
+    }
+
+    .half-n-half .img-container {
+      order: 1;
+    }
+    .half-n-half .text-container {
+      order: 2;
+    }
+
+    .three-columns {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .row {
+      order: 1;
+    }
+    .row:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+
 </style>
