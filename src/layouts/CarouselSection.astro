@@ -49,15 +49,15 @@ const slidesWithClones = [
 
 <section class="center interlude">
   <div class="carousel-wrapper">
-    <div class="slide-button-container prev">
+    <button class="slide-button-container prev">
       <Fragment set:html={Arrow} />
-    </div>
+    </button>
     <div class="carousel">
       {slidesWithClones.map((slide) => <Slide {...slide} />)}
     </div>
-    <div class="slide-button-container next">
+    <button class="slide-button-container next">
       <Fragment set:html={Arrow} />
-    </div>
+    </button>
   </div>
 
   <style>
@@ -84,11 +84,21 @@ const slidesWithClones = [
     .slide-button-container {
       width: 3em;
       background: #ffffff88;
+      border: none;
       position: absolute;
       height: 3em;
       z-index: 1;
       border-radius: 100%;
       top: 45%;
+    }
+    .slide-button-container:focus {
+      outline: auto;
+    }
+    .slide-button-container:hover {
+      background: #ffffffce;
+    }
+    .slide-button-container:active {
+      background: #17c3b2e3;
     }
 
     .slide-button-container.prev {
@@ -148,13 +158,18 @@ const slidesWithClones = [
         }
         const diff = currentPosition - startPos;
         currentTranslate = prevTranslate + diff;
-        snapToSlide(currentTranslate);
+        snapToSlide();
       }
     }
 
     function dragEnd() {
       isDragging = false;
       document.body.style.cursor = "grab";
+    }
+
+    function moveCarousel(translateAmount) {
+      currentTranslate = currentTranslate - translateAmount;
+      snapToSlide();
     }
 
     function snapToSlide() {
@@ -164,17 +179,9 @@ const slidesWithClones = [
       const breakPoint = carousel.offsetWidth === slideWidthOffset ? 1.5 : 3;
       const minRange = -slideWidthOffset * 2; // Second slide
       const maxRange = -slideWidthOffset * slidesAmount + slideWidthOffset * 5; // Second to last slide
-      console.log(
-        slideWidthOffset,
-        slidesAmount,
-        breakPoint,
-        maxRange,
-        currentTranslate,
-      );
 
       const newPosition =
-        Math.round((currentTranslate) / slideWidthOffset) *
-        slideWidthOffset;
+        Math.round(currentTranslate / slideWidthOffset) * slideWidthOffset;
 
       currentTranslate = newPosition;
       carousel.style.transform = `translateX(${currentTranslate}px)`;
@@ -206,7 +213,11 @@ const slidesWithClones = [
     window.addEventListener("resize", snapToSlide);
     snapToSlide();
 
+    const prevButton = document.querySelector(".slide-button-container.prev");
+    const nextButton = document.querySelector(".slide-button-container.next");
+    prevButton.addEventListener("click", moveCarousel.bind(this, -slideWidthOffset));
+    nextButton.addEventListener("click", moveCarousel.bind(this, slideWidthOffset));
     // Optional: Auto-rotate slides every 3 seconds
-    // setInterval(snapToSlide, 3000);
+    setInterval(moveCarousel.bind(this, slideWidthOffset), 2500);
   </script>
 </section>
