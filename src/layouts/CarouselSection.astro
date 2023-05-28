@@ -34,6 +34,11 @@ const slides = [
     color: "#0000ff",
     image: "https://placedog.net/450/600?id=6",
   },
+  {
+    name: "Slide 7",
+    color: "#0000ff",
+    image: "https://placedog.net/450/600?id=7",
+  },
 ];
 const slidesAmount = slides.length;
 const slidesWithClones = [
@@ -111,7 +116,7 @@ const slidesWithClones = [
 
     .carousel {
       display: flex;
-      transition: transform 0.2s ease;
+      transition: transform 0.18s ease;
       width: 100vw;
       height: 32em;
     }
@@ -125,6 +130,8 @@ const slidesWithClones = [
     let startPos = slideWidthOffset * -2;
     let currentTranslate = slideWidthOffset * -2;
     let prevTranslate = slideWidthOffset * -2;
+    let carouselInterval = enableAutoRotate();
+    let buttonCooldown = false;
 
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("touchstart", dragStart);
@@ -150,6 +157,7 @@ const slidesWithClones = [
 
     function drag(event) {
       if (isDragging) {
+        clearAutoRotate(carouselInterval);
         let currentPosition = 0;
         if (event.type === "touchmove") {
           currentPosition = event.touches[0].clientX;
@@ -162,9 +170,21 @@ const slidesWithClones = [
       }
     }
 
+    function buttonPressed(translateAmount) {
+      if (buttonCooldown) return;
+
+      clearAutoRotate(carouselInterval);
+      moveCarousel(translateAmount);
+      buttonCooldown = true;
+      setTimeout(() => {
+        buttonCooldown = false;
+      }, 200);
+    }
+
     function dragEnd() {
       isDragging = false;
       document.body.style.cursor = "grab";
+      carouselInterval = enableAutoRotate();
     }
 
     function moveCarousel(translateAmount) {
@@ -187,26 +207,31 @@ const slidesWithClones = [
       carousel.style.transform = `translateX(${currentTranslate}px)`;
 
       if (newPosition > minRange) {
-        console.log("min breakpoint");
         setTimeout(() => {
           carousel.style.transition = "none";
           currentTranslate = maxRange;
           carousel.style.transform = `translateX(${currentTranslate}px)`;
           setTimeout(() => {
-            carousel.style.transition = "transform 0.2s ease";
+            carousel.style.transition = "transform 0.18s ease";
           }, 50);
-        }, 210);
+        }, 200);
       } else if (newPosition < maxRange) {
-        console.log("max breakpoint");
         setTimeout(() => {
           carousel.style.transition = "none";
           currentTranslate = minRange;
           carousel.style.transform = `translateX(${currentTranslate}px)`;
           setTimeout(() => {
-            carousel.style.transition = "transform 0.2s ease";
+            carousel.style.transition = "transform 0.18s ease";
           }, 50);
-        }, 210);
+        }, 200);
       }
+    }
+
+    function enableAutoRotate() {
+      return setInterval(moveCarousel.bind(this, slideWidthOffset), 2800);
+    }
+    function clearAutoRotate(interval) {
+      clearInterval(interval);
     }
 
     carousel.addEventListener("transitionend", snapToSlide);
@@ -215,9 +240,13 @@ const slidesWithClones = [
 
     const prevButton = document.querySelector(".slide-button-container.prev");
     const nextButton = document.querySelector(".slide-button-container.next");
-    prevButton.addEventListener("click", moveCarousel.bind(this, -slideWidthOffset));
-    nextButton.addEventListener("click", moveCarousel.bind(this, slideWidthOffset));
-    // Optional: Auto-rotate slides every 3 seconds
-    setInterval(moveCarousel.bind(this, slideWidthOffset), 2500);
+    prevButton.addEventListener(
+      "click",
+      buttonPressed.bind(this, -slideWidthOffset)
+    );
+    nextButton.addEventListener(
+      "click",
+      buttonPressed.bind(this, slideWidthOffset)
+    );
   </script>
 </section>
