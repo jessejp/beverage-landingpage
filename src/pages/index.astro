@@ -1,175 +1,32 @@
 ---
-import Bubbles from "../components/Bubbles.astro";
 import Layout from "../layouts/Layout.astro";
-import Canvas3D from "../components/Canvas3D.jsx";
 import CarouselSection from "../layouts/CarouselSection.astro";
+import FinalWordsSection from "../layouts/FinalWordsSection.astro";
+import Hero from "../layouts/Hero.astro";
+import DrinkVariationBanner from "../layouts/DrinkVariationBanner.astro";
+import BenefitsSection from "../layouts/BenefitsSection.astro";
 ---
 
 <Layout title="Tropical Tango">
   <main>
-    <section class="hero half-n-half">
-      <div class="content text-container">
-        <h1>Tropical Tango</h1>
-        <p>
-          Experience the perfect harmony of succulent watermelon and luscious
-          mango in every refreshing sip.
-        </p>
-        <button>Try Tropical Tango Today</button>
-      </div>
-      <div class="content img-container">
-        <Canvas3D client:load />
-        <div class="gradient"></div>
-      </div>
-      <Bubbles
-        delay="2.0s"
-        offset={{
-          big: "-25vw -5vh",
-          medium: "-34vw 5vh",
-          small: "-24vw 20vh",
-        }}
-      />
-      <Bubbles
-        delay="0.0s"
-        offset={{
-          big: "15vw 0vh",
-          medium: "34vw 10vh",
-          small: "0vw 20vh",
-        }}
-      />
-      <Bubbles
-        delay="1.9s"
-        offset={{
-          big: "-6vw 10vh",
-          medium: "12vw -2vh",
-          small: "23vw 0vh",
-        }}
-      />
-      <Bubbles
-        delay="3.0s"
-        offset={{
-          big: "30vw -4vh",
-          medium: "0vw 0vh",
-          small: "26vw 5vh",
-        }}
-      />
-    </section>
-    <section class="variation2 half-n-half">
-      <div class="img-container content">
-        <img
-          src="https://placedog.net/500/500?random"
-          alt="OrangeMocha Magic"
-        />
-      </div>
-      <div class="text-container content">
-        <h2>Savor the Magic</h2>
-        <p>
-          Embrace the enchantment and surrender your senses to the symphony of
-          orange and chocolate. Whether you're seeking a moment of indulgence or
-          a delightful pick-me-up, OrangeMocha Magic is the perfect companion to
-          add a touch of magic to your day.
-        </p>
-        <button>Discover Now</button>
-      </div>
-    </section>
-    <section class="interlude center">
-      <h2>Embrace the enchantment and surrender your senses</h2>
-      <p>
-        Discover the enchantment today and embark on a journey of pure flavor
-        bliss that will leave you craving more.
-      </p>
-      <div class="three-columns">
-        <div class="icons-col">
-          <div class="row left">
-            <div class="icon-container"><span class="icon">😂</span></div>
-            <div class="text-container">
-              <h3>Enjoy!</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-          <div class="row left">
-            <div class="icon-container"><span class="icon">🍏</span></div>
-            <div class="text-container">
-              <h3>Enjoy!</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-          <div class="row left">
-            <div class="icon-container"><span class="icon">🥱</span></div>
-            <div class="text-container">
-              <h3>Yooo, how good is this?</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-        </div>
-        <img src="https://placedog.net/300/300?random" alt="Made Fresh" />
-        <div class="icons-col">
-          <div class="row right">
-            <div class="icon-container"><span class="icon">🧉</span></div>
-            <div class="text-container">
-              <h3>Have fun in the sun!</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-          <div class="row right">
-            <div class="icon-container"><span class="icon">🍏</span></div>
-            <div class="text-container">
-              <h3>Enjoy!</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-          <div class="row right">
-            <div class="icon-container"><span class="icon">🤠</span></div>
-            <div class="text-container">
-              <h3>Yeehaw</h3>
-              <p>I am just testing some copy here!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Hero />
+    <DrinkVariationBanner />
+    <BenefitsSection />
     <CarouselSection />
+    <FinalWordsSection />
   </main>
   <footer><p>Footer</p></footer>
 </Layout>
 
-<style>
+<style is:global>
   main {
     overflow: hidden;
   }
-  .interlude .three-columns {
-    display: flex;
-    width: 100vw;
-    min-height: 50vh;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-  }
 
-  .interlude .three-columns .icons-col {
-    display: flex;
-    flex-direction: column;
-    gap: 4em;
-  }
-  .interlude .three-columns .icons-col .row {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-  }
-  .row .icon-container {
-    background: #17c3b2;
-    padding: 0.5em;
-    border-radius: 25%;
-  }
-  .row .icon-container .icon {
-    font-size: 2rem;
-  }
-
-  .row .text-container {
-    text-align: start;
-  }
-  .row .text-container p {
-    margin: 0;
-    font-size: 1.15rem;
+  div.divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
   }
 
   h1,
@@ -193,7 +50,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
   p {
     font-size: 1.25rem;
   }
-  button {
+  button.primary {
     background: #fef9ef;
     border: black 2px solid;
     border-radius: 0.5em;
@@ -203,10 +60,10 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     cursor: pointer;
     box-shadow: black 5px 5px 1px;
   }
-  button:hover {
+  button.primary:hover {
     background: #ffffff;
   }
-  button:active {
+  button.primary:active {
     transform: translateY(2px);
     box-shadow: black 3px 3px 1px;
   }
@@ -220,6 +77,7 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     max-width: 50%;
     width: 50%;
   }
+
   .half-n-half .img-container {
     position: relative;
     height: 100%;
@@ -227,29 +85,6 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .hero {
-    background: #17c3b2;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .hero img {
-    rotate: -25deg;
-  }
-  .hero .content {
-    z-index: 1;
-  }
-  .hero .content.text-container {
-    margin: 0 2vw;
-  }
-  .hero .content.text-container > * {
-    width: fit-content;
-  }
-  .variation2 {
-    min-height: 75vh;
-    height: auto;
-    background: #ffcb77;
   }
 
   section {
@@ -261,10 +96,6 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  section.interlude {
-    background: #b8ad95;
   }
 
   footer {
@@ -288,23 +119,6 @@ import CarouselSection from "../layouts/CarouselSection.astro";
     }
     .half-n-half .text-container {
       order: 2;
-    }
-
-    .three-columns {
-      flex-direction: column;
-    }
-    .interlude .three-columns .icons-col {
-      order: 1;
-      gap: 2em;
-    }
-    .three-columns img {
-      order: 2;
-    }
-    .icons-col:first-child .row:nth-child(odd) {
-      flex-direction: row-reverse;
-    }
-    .icons-col:last-child .row:nth-child(even) {
-      flex-direction: row-reverse;
     }
   }
 </style>

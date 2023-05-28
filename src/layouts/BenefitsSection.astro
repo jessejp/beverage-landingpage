@@ -1,0 +1,119 @@
+<section class="interlude center">
+  <h2>Embrace the enchantment and surrender your senses</h2>
+  <p>
+    Discover the enchantment today and embark on a journey of pure flavor bliss
+    that will leave you craving more.
+  </p>
+  <div class="divider"></div>
+  <div class="three-columns">
+    <div class="icons-col">
+      <div class="row left">
+        <div class="icon-container"><span class="icon">😂</span></div>
+        <div class="text-container">
+          <h3>Enjoy!</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+      <div class="row left">
+        <div class="icon-container"><span class="icon">🍏</span></div>
+        <div class="text-container">
+          <h3>Enjoy!</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+      <div class="row left">
+        <div class="icon-container"><span class="icon">🥱</span></div>
+        <div class="text-container">
+          <h3>Yooo, how good is this?</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+    </div>
+    <img src="https://placedog.net/500/800?random" alt="Made Fresh" />
+    <div class="icons-col">
+      <div class="row right">
+        <div class="icon-container"><span class="icon">🧉</span></div>
+        <div class="text-container">
+          <h3>Have fun in the sun!</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+      <div class="row right">
+        <div class="icon-container"><span class="icon">🍏</span></div>
+        <div class="text-container">
+          <h3>Enjoy!</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+      <div class="row right">
+        <div class="icon-container"><span class="icon">🤠</span></div>
+        <div class="text-container">
+          <h3>Yeehaw</h3>
+          <p>I am just testing some copy here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section.interlude {
+    background: #b8ad95;
+  }
+
+  .interlude .three-columns {
+    display: flex;
+    width: 100vw;
+    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
+    gap: calc(1em + 6vw);
+  }
+
+  .interlude .three-columns .icons-col {
+    display: flex;
+    flex-direction: column;
+    gap: calc(2em + 3vh);
+  }
+  .interlude .three-columns .icons-col .row {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  .row .icon-container {
+    background: #17c3b2;
+    padding: 0.5em;
+    border-radius: 25%;
+  }
+  .row .icon-container .icon {
+    font-size: 2rem;
+  }
+
+  .row .text-container {
+    text-align: start;
+  }
+  .row .text-container p {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .three-columns {
+      flex-direction: column;
+    }
+    .interlude .three-columns .icons-col {
+      order: 1;
+      gap: calc(1em + 6vw);
+    }
+    .three-columns img {
+      display: none;
+      order: 2;
+    }
+    .icons-col:first-child .row:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+    .icons-col:last-child .row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+</style>
