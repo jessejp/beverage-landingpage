@@ -9,12 +9,12 @@ import { useFrame } from "@react-three/fiber";
 const Can3D = (props) => {
   const group = useRef();
   const canGroup = useRef();
-  const { nodes, materials, animations } = useGLTF("/assets/can1.glb");
+  const { nodes, materials, animations } = useGLTF("/assets/can_v2.glb");
   const { actions } = useAnimations(animations, group);
 
   useFrame((state, delta) => {
     const elapsedTime = state.clock.getElapsedTime();
-    canGroup.current.rotation.y = elapsedTime * 2;
+    canGroup.current.rotation.y = Math.sin(elapsedTime*0.6) * 0.5 - 1;
     canGroup.current.rotation.x = Math.sin(elapsedTime*2) * 0.1;
   });
 
@@ -25,12 +25,7 @@ const Can3D = (props) => {
           <mesh
             name="Cylinder"
             geometry={nodes.Cylinder.geometry}
-            material={materials["Can texture"]}
-          />
-          <mesh
-            name="Cylinder_1"
-            geometry={nodes.Cylinder_1.geometry}
-            material={materials.CanMetal}
+            material={materials.can}
           />
         </group>
       </group>
@@ -38,6 +33,6 @@ const Can3D = (props) => {
   );
 };
 
-useGLTF.preload("/assets/can1.glb");
+useGLTF.preload("/assets/can_v2.glb");
 
 export default Can3D;

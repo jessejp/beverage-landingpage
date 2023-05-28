@@ -6,7 +6,7 @@ import { Stage } from "@react-three/drei";
 const Canvas3D = () => {
   return (
     <Canvas>
-      <Stage castShadow={false} shadows={false}>
+      <Stage castShadow={false} shadows={false} environment={"warehouse"}>
         <Suspense fallback={null}>
         <Can3D rotation={[-0.1, 0.0, -0.2]} />
         </Suspense>
