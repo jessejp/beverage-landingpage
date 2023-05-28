@@ -1,6 +1,8 @@
 ---
 import Slide from "../components/Slide.astro";
 
+import Arrow from "/arrow-left.svg?raw";
+
 const slides = [
   {
     name: "Slide 1",
@@ -34,18 +36,25 @@ const slides = [
   },
 ];
 const slidesAmount = slides.length;
+const slidesWithClones = [
+  slides[slidesAmount - 1],
+  slides[slidesAmount - 2],
+  ...slides,
+  slides[0],
+  slides[1],
+];
 ---
 
 <section class="center interlude">
   <div class="carousel-wrapper">
     <div class="slide-button-container prev">
-      <button>←</button>
+      <Fragment set:html={Arrow} />
     </div>
     <div class="carousel">
-      {slides.map((slide) => <Slide {...slide} />)}
+      {slidesWithClones.map((slide) => <Slide {...slide} />)}
     </div>
     <div class="slide-button-container next">
-      <button>→</button>
+      <Fragment set:html={Arrow} />
     </div>
   </div>
 
@@ -60,24 +69,27 @@ const slidesAmount = slides.length;
     }
 
     .slide-button-container {
-      width: 10vw;
-      background: inherit;
+      width: 3em;
+      background: #ffffff88;
       position: absolute;
-      height: 32em;
+      height: 3em;
       z-index: 1;
+      border-radius: 100%;
+      top: 45%;
     }
 
     .slide-button-container.prev {
-      left: 0;
+      left: 1em;
     }
     .slide-button-container.next {
-      right: 0;
+      right: 1em;
+      transform: scaleX(-1);
     }
 
     .carousel {
       display: flex;
       transition: transform 0.2s ease;
-      width: 80vw;
+      width: 100vw;
       height: 32em;
     }
   </style>
@@ -139,6 +151,10 @@ const slidesAmount = slides.length;
 
       const newPosition =
         Math.round(currentTranslate / slideWidthOffset) * slideWidthOffset;
+
+      console.log("newPosition", newPosition);
+      console.log("maxRange", maxRange);
+      console.log("pre currentTranslate", currentTranslate);
 
       if (newPosition > minRange) {
         currentTranslate = minRange;
