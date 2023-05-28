@@ -37,11 +37,13 @@ const slides = [
 ];
 const slidesAmount = slides.length;
 const slidesWithClones = [
-  slides[slidesAmount - 1],
+  slides[slidesAmount - 3],
   slides[slidesAmount - 2],
+  slides[slidesAmount - 1],
   ...slides,
   slides[0],
   slides[1],
+  slides[2],
 ];
 ---
 
@@ -59,13 +61,24 @@ const slidesWithClones = [
   </div>
 
   <style>
+    section.center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2em 0;
+    }
+
+    section.interlude {
+      background: #b8ad95;
+    }
     .carousel-wrapper {
       position: relative;
       display: flex;
       flex-direction: row;
       width: 100%;
       justify-content: space-evenly;
-      background: #fff;
+      background: inherit;
     }
 
     .slide-button-container {
@@ -96,10 +109,12 @@ const slidesWithClones = [
 
   <script>
     const carousel: HTMLElement = document.querySelector(".carousel");
+    const slideElement: HTMLElement = carousel.querySelector(".slide");
+    let slideWidthOffset = updateSlideWidthOffset(slideElement);
     let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+    let startPos = slideWidthOffset * -2;
+    let currentTranslate = slideWidthOffset * -2;
+    let prevTranslate = slideWidthOffset * -2;
 
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("touchstart", dragStart);
@@ -107,6 +122,10 @@ const slidesWithClones = [
     carousel.addEventListener("touchend", dragEnd);
     carousel.addEventListener("mousemove", drag);
     carousel.addEventListener("touchmove", drag);
+
+    function updateSlideWidthOffset(element) {
+      return element.offsetWidth;
+    }
 
     function dragStart(event) {
       if (event.type === "touchstart") {
@@ -129,7 +148,7 @@ const slidesWithClones = [
         }
         const diff = currentPosition - startPos;
         currentTranslate = prevTranslate + diff;
-        snapToSlide();
+        snapToSlide(currentTranslate);
       }
     }
 
@@ -139,38 +158,55 @@ const slidesWithClones = [
     }
 
     function snapToSlide() {
-      const slideElement: HTMLElement = carousel.querySelector(".slide");
-      const slideWidthOffset = slideElement.offsetWidth;
-
+      slideWidthOffset = updateSlideWidthOffset(slideElement);
       const slidesAmount = carousel.querySelectorAll(".slide").length;
       // Division by 1 returns too large of a value, so we divide by half of 3
       const breakPoint = carousel.offsetWidth === slideWidthOffset ? 1.5 : 3;
-      const minRange = 0;
-      const maxRange =
-        (-slideWidthOffset * slidesAmount) / breakPoint - slideWidthOffset;
+      const minRange = -slideWidthOffset * 2; // Second slide
+      const maxRange = -slideWidthOffset * slidesAmount + slideWidthOffset * 5; // Second to last slide
+      console.log(
+        slideWidthOffset,
+        slidesAmount,
+        breakPoint,
+        maxRange,
+        currentTranslate,
+      );
 
       const newPosition =
-        Math.round(currentTranslate / slideWidthOffset) * slideWidthOffset;
+        Math.round((currentTranslate) / slideWidthOffset) *
+        slideWidthOffset;
 
-      console.log("newPosition", newPosition);
-      console.log("maxRange", maxRange);
-      console.log("pre currentTranslate", currentTranslate);
+      currentTranslate = newPosition;
+      carousel.style.transform = `translateX(${currentTranslate}px)`;
 
       if (newPosition > minRange) {
-        currentTranslate = minRange;
+        console.log("min breakpoint");
+        setTimeout(() => {
+          carousel.style.transition = "none";
+          currentTranslate = maxRange;
+          carousel.style.transform = `translateX(${currentTranslate}px)`;
+          setTimeout(() => {
+            carousel.style.transition = "transform 0.2s ease";
+          }, 50);
+        }, 210);
       } else if (newPosition < maxRange) {
-        currentTranslate = maxRange;
-      } else {
-        currentTranslate = newPosition;
+        console.log("max breakpoint");
+        setTimeout(() => {
+          carousel.style.transition = "none";
+          currentTranslate = minRange;
+          carousel.style.transform = `translateX(${currentTranslate}px)`;
+          setTimeout(() => {
+            carousel.style.transition = "transform 0.2s ease";
+          }, 50);
+        }, 210);
       }
-
-      carousel.style.transform = `translateX(${currentTranslate}px)`;
     }
 
     carousel.addEventListener("transitionend", snapToSlide);
     window.addEventListener("resize", snapToSlide);
+    snapToSlide();
 
     // Optional: Auto-rotate slides every 3 seconds
-    // setInterval(nextSlide, 3000);
+    // setInterval(snapToSlide, 3000);
   </script>
 </section>
