@@ -5,7 +5,10 @@ import Canvas3D from "../components/Canvas3D.jsx";
 
 <section class="hero half-n-half">
   <div class="content text-container">
-    <h1>Tropical Tango</h1>
+    <h1>
+      <span class="flavor-text">Try the new</span>
+      <span class="product">Magic Mango</span>
+    </h1>
     <p>
       Experience the perfect harmony of succulent watermelon and luscious mango
       in every refreshing sip.
@@ -55,6 +58,18 @@ import Canvas3D from "../components/Canvas3D.jsx";
     background: #17c3b2;
     height: 100vh;
     overflow: hidden;
+  }
+  .hero h1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero h1 .flavor-text {
+    color: #ffffff;
+    font-size: 0.4em;
+    line-height: 0.5em;
+  }
+  .hero h1 .product {
+    color: #ffcb77;
   }
   .hero img {
     rotate: -25deg;
