@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-const modelPath = "/assets/can_mango_less_metallic.glb";
+const modelPath = "/assets/can_strawberry.glb";
 
 const Can3D = (props) => {
   const group = useRef();
@@ -16,15 +16,15 @@ const Can3D = (props) => {
 
   useFrame((state, delta) => {
     const elapsedTime = state.clock.getElapsedTime();
-    canGroup.current.rotation.y = Math.sin(elapsedTime*0.6) * 0.8 - 0.3;
-    canGroup.current.rotation.x = Math.sin(elapsedTime*2) * 0.1;
+    canGroup.current.rotation.y = Math.sin(elapsedTime * 0.6) * 0.8 - 0.3;
+    canGroup.current.rotation.x = Math.sin(elapsedTime * 2) * 0.1;
     // canGroup.current.position.z = Math.sin(elapsedTime*0.6) * 0.3;
   });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="Can" position={[0, 0.2, 0]} ref={canGroup}>
+        <group name="Can" position={[0, 0, 0]} ref={canGroup}>
           <mesh
             name="Can"
             geometry={nodes.Can.geometry}

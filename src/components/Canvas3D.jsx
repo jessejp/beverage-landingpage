@@ -5,10 +5,15 @@ import { Stage } from "@react-three/drei";
 
 const Canvas3D = () => {
   return (
-    <Canvas>
-      <Stage castShadow={false} shadows={false} environment={"warehouse"}>
+    <Canvas camera={{ fov: 45 }}>
+      <Stage
+        castShadow={false}
+        shadows={false}
+        environment={"warehouse"}
+        intensity={0.1}
+      >
         <Suspense fallback={null}>
-        <Can3D rotation={[-0.1, 0.0, -0.2]} />
+          <Can3D rotation={[-0.1, 0.0, 0.2]} />
         </Suspense>
       </Stage>
     </Canvas>
