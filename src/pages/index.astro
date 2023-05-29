@@ -10,9 +10,9 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
 <Layout title="SODIPOP">
   <main>
     <Hero />
+    <CarouselSection />
     <DrinkVariationBanner />
     <BenefitsSection />
-    <CarouselSection />
     <FinalWordsSection />
   </main>
   <footer><p>Footer</p></footer>
@@ -95,10 +95,6 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
     justify-content: center;
   }
 
-  section {
-    padding: 2em 1em;
-  }
-
   section.center {
     display: flex;
     flex-direction: column;
@@ -118,7 +114,7 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
     }
     section.half-n-half .content {
       max-width: 100%;
-      width: 100%;
+      width: 90%;
       min-height: 50vh;
     }
 
