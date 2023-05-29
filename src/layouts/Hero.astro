@@ -1,5 +1,4 @@
 ---
-import Bubbles from "../components/Bubbles.astro";
 import Canvas3D from "../components/Canvas3D.jsx";
 ---
 
@@ -10,7 +9,7 @@ import Canvas3D from "../components/Canvas3D.jsx";
   </div>
   <div class="content text-container">
     <span class="subheading font-brand accent-color">DID YOU KNOW THAT...</span>
-    <div class="divider" />
+    <div class="divider"></div>
     <h1 class="font-brand">
       SODIPOP IS LOVELY<br /> FOR THE <span class="accent-color">SOUL</span>
     </h1>
@@ -18,10 +17,11 @@ import Canvas3D from "../components/Canvas3D.jsx";
       Sodipop guarantees you will have a refreshing, tasty and lovely day. Every
       day! 🍓
     </p>
-    <button class="primary drop-shadow border accent-color font-body"><b>Shop Sodipop</b></button>
-    <div class="divider" />
-    <p class="campaign-text font-flavor">
-      25% off for a limited time!</p>
+    <button class="primary drop-shadow border accent-color font-body"
+      ><b>Shop Sodipop</b></button
+    >
+    <div class="divider"></div>
+    <p class="campaign-text font-flavor">25% off for a limited time!</p>
   </div>
   <!-- <Bubbles
     delay="2.0s"
@@ -59,7 +59,7 @@ import Canvas3D from "../components/Canvas3D.jsx";
 
 <style>
   .hero .accent-color {
-    color: #DC86AC;
+    color: #dc86ac;
   }
   p {
     color: #87405f;
@@ -85,10 +85,6 @@ import Canvas3D from "../components/Canvas3D.jsx";
   p.campaign-text {
     transform: rotate(350deg) translate(25%, 5%);
   }
-
-  .hero img {
-    rotate: -25deg;
-  }
   .hero .content {
     z-index: 1;
   }
@@ -100,11 +96,11 @@ import Canvas3D from "../components/Canvas3D.jsx";
   }
 
   .border {
-    border: #DC86AC 2px solid;
+    border: #dc86ac 2px solid;
   }
 
   .drop-shadow {
-    box-shadow: #DC86AC 5px 5px 1px;
+    box-shadow: #dc86ac 5px 5px 1px;
   }
 
   @media only screen and (max-width: 1200px) {

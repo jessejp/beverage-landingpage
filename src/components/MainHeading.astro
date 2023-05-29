@@ -1,0 +1,73 @@
+---
+const {
+  subheading = "Did you know that...",
+  body,
+  button,
+  campaign,
+  textAlign = "start",
+  accentColor,
+  bodyTextColor,
+} = Astro.props;
+
+---
+
+<div class="content text-container">
+  <span class="subheading font-brand accent-color">{subheading}</span>
+  <div class="divider"></div>
+  <h1 class="font-brand">
+    <slot />
+  </h1>
+  <p class="heading-body-text">
+    {body}
+  </p>
+  <button class="primary drop-shadow border accent-color font-body">
+    <b>{button}</b>
+  </button>
+  <div class="divider"></div>
+  {
+    !!campaign && (
+      <p class="campaign-text font-flavor">25% off for a limited time!</p>
+    )
+  }
+</div>
+
+<style define:vars={{ accentColor, bodyTextColor, textAlign }}>
+  .content.text-container {
+    margin: 0 2vw;
+    text-align: var(--textAlign);
+  }
+  
+  .accent-color {
+    color: var(--accentColor);
+  }
+
+  h1 {
+    color: #fff;
+    line-height: 1em;
+  }
+
+  .text-container .subheading {
+    font-size: 1.8em;
+    line-height: 1.2em;
+  }
+
+  .text-container .heading-body-text {
+    max-width: 30em;
+    color: var(--bodyTextColor);
+  }
+
+  p.campaign-text {
+    transform: rotate(350deg) translate(25%, 5%);
+  }
+  .content.text-container > * {
+    width: fit-content;
+  }
+
+  .border {
+    border: var(--accentColor) 2px solid;
+  }
+
+  .drop-shadow {
+    box-shadow: var(--accentColor) 5px 5px 1px;
+  }
+</style>

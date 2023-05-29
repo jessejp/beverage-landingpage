@@ -1,160 +1,93 @@
-<section class="interlude center">
-  <h2>Embrace the enchantment and surrender your senses</h2>
-  <p>
-    Discover the enchantment today and embark on a journey of pure flavor bliss
-    that will leave you craving more.
-  </p>
-  <div class="divider"></div>
-  <div class="three-columns">
-    <div class="icons-col">
-      <div class="row left">
-        <div class="icon-container"><span class="icon">💪</span></div>
-        <div class="text-container">
-          <h4>Antioxidant Boost</h4>
-          <p>
-            Help combat the harmful effects of free radicals and support a
-            healthy immune system.
-          </p>
-        </div>
+---
+import MainHeading from "../components/MainHeading.astro";
+---
+
+<section class="half-n-half">
+  <MainHeading
+    body="Sodipop guarantees you will have a refreshing, tasty and lovely day. Every day! 🍉"
+    button="Read More..."
+    campaign=""
+    textAlign=""
+    accentColor="#8D9512"
+    bodyTextColor="#535710"
+  >
+    Sodipop is also lovely for the <span class="accent-color">body</span>
+  </MainHeading>
+  <div class="content img-container">
+    <div class="benefits-stamp-container">
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
-      <div class="row left">
-        <div class="icon-container"><span class="icon">💧</span></div>
-        <div class="text-container">
-          <h4>Refreshing Hydration</h4>
-          <p>
-            Our carbonated soda not only quenches your thirst but also provides
-            the essential hydration your body needs to stay refreshed and
-            revitalized throughout the day.
-          </p>
-        </div>
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
-      <div class="row left">
-        <div class="icon-container"><span class="icon">🚫</span></div>
-        <div class="text-container">
-          <h4>No Preservatives</h4>
-          <p>
-            Enjoy the pure and natural taste of our carbonated soda, free from
-            any artificial preservatives.
-          </p>
-        </div>
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
-    </div>
-    <img src="/assets/products/SweetStrawberry_small.png" alt="Made Fresh" />
-    <div class="icons-col">
-      <div class="row right">
-        <div class="icon-container"><span class="icon">🧉</span></div>
-        <div class="text-container">
-          <h4>Uncompromised Quality</h4>
-          <p>We never compromise on the integrity of our carbonated soda</p>
-        </div>
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
-      <div class="row right">
-        <div class="icon-container"><span class="icon">🍏</span></div>
-        <div class="text-container">
-          <h4>Freshly Made</h4>
-          <p>
-            We believe in preserving the freshness of our carbonated soda the
-            way nature intended.
-          </p>
-        </div>
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
-      <div class="row right">
-        <div class="icon-container"><span class="icon">🌱</span></div>
-        <div class="text-container">
-          <h4>Natural Ingredients</h4>
-          <p>
-            We take pride in using only high-quality, natural ingredients in our
-            carbonated soda.
-          </p>
-        </div>
+      <div class="benefits-stamp accent-color">
+        <span class="x-icon">⨂</span>
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  section.interlude {
-    background: #b8ad95;
+  section {
+    background-color: #dee971;
+    height: 90vh;
+  }
+  .accent-color {
+    color: #8d9512;
   }
 
-  section.interlude h2 {
-    width: 80%;
+  .body-color {
+    color: #535710;
   }
 
-  .interlude .three-columns {
+  .benefits-stamp-container {
     display: flex;
-    width: 100vw;
-    min-height: 50vh;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: start;
+    gap: 2em;
     align-items: center;
-    /* gap: calc(1em + 6vw); */
+    flex-wrap: wrap;
+    font-size: min(calc(0.5em + 0.5vw), calc(1em));
+    max-width: 52em;
   }
 
-  .three-columns > .icons-col {
-    width: 25vw;
-  }
-
-  .interlude .three-columns .icons-col {
+  .benefits-stamp {
     display: flex;
-    gap: calc(2em + 3vh);
     flex-direction: column;
-  }
-
-  .interlude .three-columns .icons-col .row {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-  }
-  .row .icon-container {
-    background: #17c3b2;
-    border-radius: 25%;
-    aspect-ratio: 1/1;
-    min-width: 4em;
-    display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .row .icon-container .icon {
-    font-size: 2rem;
+    text-align: center;
+    background-color: #e9f57d;
+    padding: 2em;
+    width: 12em;
+    height: 12em;
+    border-radius: 9999px;
+    box-shadow: #8D9512 3px 3px 0px 2px;
   }
 
-  .row .text-container {
+  .benefits-stamp .x-icon {
+    font-size: 3em;
   }
-  .row .text-container p {
+  .benefits-stamp p {
+    width: 9em;
+    font-size: 1.2em;
+    line-height: 1.8rem;
     margin: 0;
-    font-size: 1.15rem;
-  }
-
-  @media only screen and (min-width: 1199px) {
-    .interlude .three-columns .icons-col:first-child .row {
-      flex-direction: row-reverse;
-      text-align: right;
-    }
-    .interlude .three-columns .icons-col:last-child .row {
-      flex-direction: row;
-      text-align: start;
-    }
-  }
-  @media only screen and (max-width: 1200px) {
-    .three-columns {
-      flex-direction: column;
-      text-align: start;
-      gap: calc(1em + 6vw);
-    }
-    .interlude .three-columns .icons-col {
-      order: 1;
-      gap: calc(1em + 6vw);
-      width: 100vw;
-    }
-    .three-columns img {
-      display: none;
-      order: 2;
-    }
-    .icons-col:first-child .row:nth-child(odd) {
-      flex-direction: row-reverse;
-    }
-    .icons-col:last-child .row:nth-child(even) {
-      flex-direction: row-reverse;
-    }
   }
 </style>
