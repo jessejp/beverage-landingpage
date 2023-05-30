@@ -7,9 +7,7 @@
     <a class="highlighted" href="#"><b>Try for free</b></a>
   </div>
   <div class="hamburger-icon">
-    <div class="hamburger-bar"></div>
-    <div class="hamburger-bar"></div>
-    <div class="hamburger-bar"></div>
+    <span class="material-symbols-outlined"> menu</span>
   </div>
 </nav>
 
@@ -62,13 +60,11 @@
   .hamburger-icon {
     display: none;
     cursor: pointer;
+    color: #904d6a;
+    z-index: 2;
   }
-
-  .hamburger-bar {
-    width: 25px;
-    height: 3px;
-    background-color: #904d6a;
-    margin: 4px;
+  .hamburger-icon span {
+    font-size: 2.5em;
   }
 
   .overlay {
