@@ -1,26 +1,31 @@
 ---
+import MainHeading from "../components/MainHeading.astro";
 ---
 
 <section class="variation2 half-n-half">
   <div class="img-container content">
     <img src="https://placedog.net/500/500?id=126" alt="OrangeMocha Magic" />
   </div>
-  <div class="text-container content">
-    <h2>Savor the Magic</h2>
-    <p>
-      Embrace the enchantment and surrender your senses to the symphony of
-      orange and chocolate. Whether you're seeking a moment of indulgence or a
-      delightful pick-me-up, OrangeMocha Magic is the perfect companion to add a
-      touch of magic to your day.
-    </p>
-    <button class="primary">Discover Now</button>
-  </div>
+  <MainHeading
+    accentColor="#dc86ac"
+    bodyTextColor="#87405f"
+    body="Sweet Strawberry, Crispy Watermelon and Magic Mango are here to save your day! 😋"
+    button="Shop Sodipop"
+    >
+    Sodipop offers <span class="accent-color">Three Tasty Pops</span>
+  </MainHeading>
 </section>
 
 <style>
+  .accent-color {
+    color: #dc86ac;
+  }
+  p {
+    color: #87405f;
+  }
   .variation2 {
     min-height: 75vh;
     height: auto;
-    background: #ffcb77;
+    background: #fbe1ec;
   }
 </style>
