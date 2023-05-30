@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CarouselSection from "../layouts/CarouselSection.astro";
-import FinalWordsSection from "../layouts/FinalWordsSection.astro";
-import Hero from "../layouts/Hero.astro";
-import DrinkVariationBanner from "../layouts/DrinkVariationBanner.astro";
-import BenefitsSection from "../layouts/BenefitsSection.astro";
-import MailingList from "../layouts/MailingList.astro";
+import CarouselSection from "../sections/CarouselSection.astro";
+import Hero from "../sections/Hero.astro";
+import DrinkVariationBanner from "../sections/DrinkVariationBanner.astro";
+import BenefitsSection from "../sections/BenefitsSection.astro";
+import MailingList from "../sections/MailingList.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="SODIPOP">
@@ -15,9 +15,8 @@ import MailingList from "../layouts/MailingList.astro";
     <BenefitsSection />
     <MailingList />
     <DrinkVariationBanner />
-    <FinalWordsSection />
   </main>
-  <footer><p>Footer</p></footer>
+  <Footer />
 </Layout>
 
 <style is:global>
@@ -54,8 +53,7 @@ import MailingList from "../layouts/MailingList.astro";
   }
 
   h4 {
-    font-size: 1.6em;
-    color: #000000;
+    font-size: 1.15em;
   }
 
   p {
@@ -103,12 +101,6 @@ import MailingList from "../layouts/MailingList.astro";
     align-items: center;
     text-align: center;
   }
-
-  footer {
-    height: 200px;
-    text-align: center;
-  }
-
   @media only screen and (max-width: 1200px) {
     section.half-n-half {
       flex-direction: column;

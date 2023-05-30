@@ -1,0 +1,101 @@
+<footer class="font-body">
+  <div class="some">
+    <img src="https://via.placeholder.com/250x100" alt="logo" />
+    <h3 class="font-brand">SODIPOP</h3>
+    <div class="divider"></div>
+    <div class="links">
+      <img src="https://via.placeholder.com/40x40/fff" alt="logo" />
+      <img src="https://via.placeholder.com/40x40/fff" alt="logo" />
+      <img src="https://via.placeholder.com/40x40/fff" alt="logo" />
+      <img src="https://via.placeholder.com/40x40/fff" alt="logo" />
+    </div>
+  </div>
+  <div class="footer-links">
+    <div class="nav">
+      <h4 class="font-brand">SODIPOP</h4>
+      <ul>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Why Sodipop</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="support">
+      <h4 class="font-brand">SUPPORT</h4>
+      <ul>
+        <li><a href="#">Your Account</a></li>
+        <li><a href="#">Frequently Asked Questions</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin: 0;
+    background-color: #dc86ac;
+    color: #904d6a;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 2.5em 1em;
+    justify-content: space-evenly;
+    height: fit-content;
+    gap: 5rem;
+  }
+
+  .some {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20em;
+  }
+  .some h3 {
+    text-align: center;
+    line-height: 1em;
+  }
+  .some .links {
+    background: #904d6a;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  .nav,
+  .support {
+    text-align: start;
+    font-size: 1.1em;
+  }
+  h4 {
+    margin: 0;
+  }
+
+  a {
+    color: #904d6a;
+    text-decoration: underline #dee971;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin: 0.75rem 0 0 0;
+  }
+  @media (max-width: 400px) {
+
+    .footer-links {
+      flex-direction: column;
+    }
+  }
+</style>
