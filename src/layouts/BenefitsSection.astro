@@ -46,7 +46,7 @@ import MainHeading from "../components/MainHeading.astro";
 <style>
   section {
     background-color: #dee971;
-    height: 90vh;
+    min-height: 90vh;
   }
   .accent-color {
     color: #8d9512;
@@ -63,7 +63,7 @@ import MainHeading from "../components/MainHeading.astro";
     gap: 2em;
     align-items: center;
     flex-wrap: wrap;
-    font-size: min(calc(0.5em + 0.5vw), calc(1em));
+    font-size: min(calc(0.5em + 0.5vw), calc(0.5em + 0.5vh));
     max-width: 52em;
   }
 
@@ -78,7 +78,7 @@ import MainHeading from "../components/MainHeading.astro";
     width: 12em;
     height: 12em;
     border-radius: 9999px;
-    box-shadow: #8D9512 3px 3px 0px 2px;
+    box-shadow: #8d9512 3px 3px 0px 2px;
   }
 
   .benefits-stamp .x-icon {

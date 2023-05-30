@@ -5,6 +5,7 @@ import FinalWordsSection from "../layouts/FinalWordsSection.astro";
 import Hero from "../layouts/Hero.astro";
 import DrinkVariationBanner from "../layouts/DrinkVariationBanner.astro";
 import BenefitsSection from "../layouts/BenefitsSection.astro";
+import MailingList from "../layouts/MailingList.astro";
 ---
 
 <Layout title="SODIPOP">
@@ -12,6 +13,7 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
     <Hero />
     <CarouselSection />
     <BenefitsSection />
+    <MailingList />
     <DrinkVariationBanner />
     <FinalWordsSection />
   </main>
@@ -38,17 +40,17 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
   }
   h1 {
     font-size: min(calc(2em + 3vw), calc(2em + 2vw));
-    color: #fef9ef;
+    color: #fff;
   }
 
   h2 {
     font-size: min(calc(2em + 3vw), calc(2em + 2vw));
-    color: #fef9ef;
+    color: #fff;
   }
 
   h3 {
     font-size: min(calc(1em + 2vw), calc(1.5em + 2vw));
-    color: #fef9ef;
+    color: #fff;
   }
 
   h4 {
@@ -110,17 +112,18 @@ import BenefitsSection from "../layouts/BenefitsSection.astro";
   @media only screen and (max-width: 1200px) {
     section.half-n-half {
       flex-direction: column;
-      justify-content: flex-start;
-    align-items: flex-end;
+      justify-content: center;
+      gap: 1.5rem;
     }
     section.half-n-half .content {
       max-width: 100%;
       width: 90%;
-      min-height: 50vh;
+      height: fit-content;
     }
 
     .half-n-half .img-container {
       order: 1;
+      max-height: 50vh;
     }
     .half-n-half .text-container {
       order: 2;

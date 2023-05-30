@@ -8,21 +8,36 @@ const {
   accentColor,
   bodyTextColor,
 } = Astro.props;
-
 ---
 
 <div class="content text-container">
-  <span class="subheading font-brand accent-color">{subheading}</span>
+  {
+    subheading && (
+      <span class="subheading font-brand accent-color">{subheading}</span>
+    )
+  }
   <div class="divider"></div>
   <h1 class="font-brand">
     <slot />
   </h1>
-  <p class="heading-body-text">
-    {body}
-  </p>
-  <button class="primary drop-shadow border accent-color font-body">
-    <b>{button}</b>
-  </button>
+  {
+    body && (
+      <>
+        <div class="divider" />
+        <p class="heading-body-text">{body}</p>
+      </>
+    )
+  }
+  {
+    button && (
+      <>
+        <div class="divider" />
+        <button class="primary drop-shadow border accent-color font-body">
+          <b>{button}</b>
+        </button>
+      </>
+    )
+  }
   <div class="divider"></div>
   {
     !!campaign && (
@@ -35,8 +50,12 @@ const {
   .content.text-container {
     margin: 0 2vw;
     text-align: var(--textAlign);
+    display: flex;
+    flex-direction: column;
+    align-items: var(--textAlign);
+    z-index: 1;
   }
-  
+
   .accent-color {
     color: var(--accentColor);
   }
@@ -52,6 +71,7 @@ const {
   }
 
   .text-container .heading-body-text {
+    margin: 0;
     max-width: 30em;
     color: var(--bodyTextColor);
   }
