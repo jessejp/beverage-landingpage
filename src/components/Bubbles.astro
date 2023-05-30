@@ -1,11 +1,13 @@
-<div class="big bubble bub1"></div>
-<div class="medium bubble bub1"></div>
-<div class="small bubble bub1"></div>
-<div class="big bubble bub2"></div>
-<div class="medium bubble bub2"></div>
-<div class="small bubble bub2"></div>
+---
+const { delay = "0.0s", offset } = Astro.props;
+const { big, medium, small } = offset;
+---
 
-<style>
+<div class="big bubble"><img src="./assets/bubble.png" /></div>
+<div class="medium bubble"><img src="./assets/bubble.png" /></div>
+<div class="small bubble"><img src="./assets/bubble.png" /></div>
+
+<style define:vars={{ delay, big, medium, small }}>
   .bubble {
     opacity: 0;
     position: absolute;
@@ -13,47 +15,35 @@
     z-index: 0;
     animation: floatBubble 6s cubic-bezier(0.21, 0.04, 1, 1) infinite,
       appearBubble 6s linear infinite;
+    animation-delay: var(--delay);
   }
 
-  .bubble.bub1 {
-    animation-delay: 0s;
-  }
-  .bubble.bub2 {
-    animation-delay: 2s;
+  .bubble img {
+    width: 100%;
+    filter: hue-rotate(330deg)
   }
 
   .bubble.big {
     width: 60px;
     height: 60px;
-    background: url("https://place-puppy.com/60x60?f=png");
   }
   .bubble.medium {
     width: 45px;
     height: 45px;
-    background: url("https://place-puppy.com/45x45?f=png");
   }
   .bubble.small {
     width: 30px;
     height: 30px;
-    background: url("https://place-puppy.com/30x30?f=png");
   }
-  .bubble.big.bub1 {
-    translate: -10vw 0vh;
+
+  .bubble.big {
+    translate: var(--big);
   }
-  .bubble.medium.bub1 {
-    translate: 10vw 20vh;
+  .bubble.medium {
+    translate: var(--medium);
   }
-  .bubble.small.bub1 {
-    translate: 5vw 8vh;
-  }
-  .bubble.big.bub2 {
-    translate: 25vw -10vh;
-  }
-  .bubble.medium.bub2 {
-    translate: -5vw -20vh;
-  }
-  .bubble.small.bub2 {
-    translate: 15vw -18vh;
+  .bubble.small {
+    translate: var(--small);
   }
 
   @keyframes floatBubble {
@@ -70,7 +60,7 @@
       opacity: 0;
     }
     50% {
-      opacity: 0.5;
+      opacity: 1;
     }
     100% {
       opacity: 0;

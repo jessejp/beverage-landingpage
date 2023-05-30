@@ -1,0 +1,128 @@
+<nav>
+  <div class="nav-links-container font-body">
+    <a href="#"><b>Shop</b></a>
+    <a href="#"><b>Learn</b></a>
+    <img src="/assets/logo_white.png" alt="logo" />
+    <a href="#"><b>Subscribe</b></a>
+    <a class="highlighted" href="#"><b>Try for free</b></a>
+  </div>
+  <div class="hamburger-icon">
+    <span class="material-symbols-outlined"> menu</span>
+  </div>
+</nav>
+
+<div class="overlay">
+  <div class="overlay-content">
+    <a href="#"><b>Shop</b></a>
+    <a href="#"><b>Learn</b></a>
+    <a href="#"><b>Subscribe</b></a>
+    <a class="highlighted" href="#"><b>Try for free</b></a>
+  </div>
+</div>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    width: 100%;
+    height: 4em;
+    align-items: flex-end;
+    position: relative;
+  }
+  .nav-links-container {
+    display: flex;
+    width: 80%;
+    max-width: 56em;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav img {
+    height: 2.35em;
+  }
+  a {
+    color: #904d6a;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #dc86ac;
+  }
+  a.highlighted {
+    background: #904d6a;
+    color: #fbe1ec;
+    padding: 0.65rem 1.35rem;
+    border-radius: 0.36rem;
+  }
+  a.highlighted:hover {
+    background: #dc86ac;
+  }
+
+  .hamburger-icon {
+    display: none;
+    cursor: pointer;
+    color: #904d6a;
+    z-index: 2;
+  }
+  .hamburger-icon span {
+    font-size: 2.5em;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    z-index: 2;
+  }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+    font-size: 24pt;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      position: absolute;
+    }
+    .nav-links-container {
+      display: none;
+    }
+
+    .hamburger-icon {
+      display: block;
+      position: absolute;
+      right: 2em;
+      top: 2em;
+    }
+
+    .overlay {
+      display: none;
+    }
+
+    .overlay.open {
+      display: flex;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const overlay = document.querySelector(".overlay");
+
+  hamburgerIcon.addEventListener("click", () => {
+    overlay.classList.toggle("open");
+  });
+  overlay.addEventListener("click", () => {
+    overlay.classList.toggle("open");
+  });
+</script>

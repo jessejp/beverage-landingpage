@@ -1,87 +1,122 @@
 ---
-import Bubbles from "../components/Bubbles.astro";
 import Layout from "../layouts/Layout.astro";
+import CarouselSection from "../sections/CarouselSection.astro";
+import Hero from "../sections/Hero.astro";
+import DrinkVariationBanner from "../sections/DrinkVariationBanner.astro";
+import BenefitsSection from "../sections/BenefitsSection.astro";
+import MailingList from "../sections/MailingList.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
 ---
 
-<Layout title="Tropical Tango">
+<Layout title="SODIPOP">
+  <header>
+    <Nav />
+    <Hero />
+  </header>
   <main>
-    <section class="hero half-n-half">
-      <div class="content">
-        <h1>Tropical Tango</h1>
-        <p>
-          Experience the perfect harmony of succulent watermelon and luscious
-          mango in every refreshing sip.
-        </p>
-        <button> Try Tropical Tango Today</button>
-      </div>
-      <div class="content">
-        <img src="https://place-puppy.com/150x300?f=png" alt="Tropical Tango" />
-      </div>
-      <Bubbles />
-    </section>
-    <section class="variation2 half-n-half">
-      <div>
-        <img
-          src="https://placedog.net/200/300?random"
-          alt="OrangeMocha Magic"
-        />
-      </div>
-      <div>
-        <h1>Savor the Magic</h1>
-        <p>
-          Embrace the enchantment and surrender your senses to the symphony of
-          orange and chocolate. Whether you're seeking a moment of indulgence or
-          a delightful pick-me-up, OrangeMocha Magic is the perfect companion to
-          add a touch of magic to your day.
-        </p>
-        <button>Discover Now</button>
-      </div>
-    </section>
-    <section class="interlude center">
-      <h2>Embrace the enchantment and surrender your senses</h2>
-      <p>
-        Discover the enchantment today and embark on a journey of pure flavor
-        bliss that will leave you craving more.
-      </p>
-      <img src="https://placedog.net/300/300?random" alt="Made Fresh" />
-    </section>
+    <CarouselSection />
+    <BenefitsSection />
+    <MailingList />
+    <DrinkVariationBanner />
   </main>
+  <Footer />
 </Layout>
 
-<style>
+<style is:global>
+  header {
+    position: relative;
+    background: #fbe1ec;
+  }
+  main {
+    overflow: hidden;
+  }
+
+  div.divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.85rem 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(31pt, 25pt + 2vw, 62pt);
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 28pt;
+    color: #fff;
+  }
+
+  h3 {
+    font-size: 28pt;
+    color: #fff;
+  }
+
+  h4 {
+    font-size:18pt;
+  }
+
+  p {
+    font-family: "Inter-Regular", sans-serif;
+    font-size: clamp(10pt, 10pt + 1vw, 18pt);
+  }
+
   section.half-n-half {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
-  section.half-n-half div {
-    max-width: 50%;
-  }
-  .hero {
-    background: #17c3b2;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .hero img {
-    rotate: -25deg;
-  }
-  .hero .content {
-    z-index: 1;
+  section.half-n-half .content {
+    width: 50%;
+    max-width: 50rem;
   }
 
-  .variation2 {
-    height: 50vh;
-    background: #ffcb77;
+  .half-n-half .img-container {
+    position: relative;
+    /* height: 100%; */
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .half-n-half .img-container img {
+    width: 100%;
+    max-width: fit-content;
   }
 
   section.center {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
+  @media only screen and (max-width: 1200px) {
+    section.half-n-half {
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    section.half-n-half .content {
+      max-width: 100%;
+      width: 90%;
+    }
 
-  section.interlude {
-    height: 50vh;
-    background: #fef9ef;
+    .half-n-half .img-container {
+      order: 1;
+      max-height: 50%;
+    }
+    .half-n-half .text-container {
+      order: 2;
+      min-height: 50%;
+      height: fit-content;
+    }
   }
 </style>

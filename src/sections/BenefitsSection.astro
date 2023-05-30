@@ -1,0 +1,107 @@
+---
+import MainHeading from "../components/MainHeading.astro";
+---
+
+<section class="half-n-half">
+  <MainHeading
+    body="Sodipop guarantees you will have a refreshing, tasty and lovely day. Every day! 🍉"
+    button="Read More..."
+    campaign=""
+    textAlign=""
+    accentColor="#8D9512"
+    bodyTextColor="#535710"
+  >
+    Sodipop is also lovely for the <span class="accent-color">body</span>
+  </MainHeading>
+  <div class="content img-container">
+    <div class="benefits-stamp-container">
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> icecream</span>
+        </span>
+        <p class="font-brand">only 5 grams of sugar</p>
+      </div>
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> cancel</span></span
+        >
+        <p class="font-brand">NONE OF THEM PRESERVATIVES</p>
+      </div>
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> mood</span></span
+        >
+        <p class="font-brand">15 kcal Per Serving</p>
+      </div>
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> eco</span></span
+        >
+        <p class="font-brand">Natural Ingredients</p>
+      </div>
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> verified</span></span
+        >
+        <p class="font-brand">Freshly Made, Naturally Preserved</p>
+      </div>
+      <div class="benefits-stamp accent-color">
+        <span class="icon"
+          ><span class="material-symbols-outlined"> water_drop</span></span
+        >
+        <p class="font-brand">Packed with natural electrolytes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: #dee971;
+    min-height: 90vh;
+  }
+  .accent-color {
+    color: #8d9512;
+  }
+
+  .body-color {
+    color: #535710;
+  }
+
+  .benefits-stamp-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: min(calc(0.5em + 0.5vw), calc(0.5em + 0.5vh));
+    font-size: clamp(0.5em, 0.1rem + 1.5vw, 1em);
+    max-width: 52em;
+  }
+
+  .benefits-stamp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #e9f57d;
+    padding: 0.5em;
+    width: 14em;
+    height: 14em;
+    border-radius: 9999px;
+    box-shadow: #8d9512 3px 3px 0px 2px;
+  }
+
+  .benefits-stamp .icon > span {
+    font-size: 3.5em;
+  }
+
+  .benefits-stamp p {
+    width: 9em;
+    font-size: 1.2em;
+    line-height: 1.25rem;
+    margin: 0;
+  }
+</style>

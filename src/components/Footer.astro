@@ -1,0 +1,124 @@
+<footer class="font-body">
+  <div class="some">
+    <img
+      class="brand-motto"
+      src="/assets/lovelyfortheshoulwhite.png"
+      alt="motto: lovely for the soul"
+    />
+    <div class="divider"></div>
+    <img class="logo" src="/assets/logo_white.png" alt="Sodipop logo" />
+    <div class="divider"></div>
+    <div class="links">
+      <img src="/assets/youtube.png" alt="youtube" />
+      <img src="/assets/twitter.png" alt="twitter" />
+      <img src="/assets/twitch.png" alt="twitch" />
+      <img src="/assets/tik-tok.png" alt="logo" />
+    </div>
+  </div>
+  <div class="footer-links">
+    <div class="nav">
+      <h4 class="font-brand">SODIPOP</h4>
+      <ul>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Why Sodipop?</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="support">
+      <h4 class="font-brand">SUPPORT</h4>
+      <ul>
+        <li><a href="#">Your Account</a></li>
+        <li><a href="#">Frequently Asked Questions</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin: 0;
+    background-color: #dc86ac;
+    color: #904d6a;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 2.5rem 1rem 8rem 1rem;
+    justify-content: space-evenly;
+    height: fit-content;
+    gap: 5rem;
+  }
+
+  img.brand-motto {
+    width: 16rem;
+  }
+  img.logo {
+    width: 19rem;
+  }
+
+  .some {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20em;
+  }
+  .some h3 {
+    text-align: center;
+    line-height: 1em;
+  }
+  .some .links {
+    background: #904d6a;
+    padding: 0.8rem 2rem;
+    border-radius: 0.35rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .some .links img {
+    width: fit-content;
+    height: 2em;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  .nav,
+  .support {
+    text-align: start;
+    font-size: 16pt;
+  }
+  h4 {
+    margin: 0;
+  }
+
+  a {
+    color: #904d6a;
+    text-decoration: none;
+    padding-bottom: 0.175rem;
+    border-bottom: 0.175rem solid #dee971;
+  }
+  a:hover {
+    color: #fff;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin: 0.75rem 0 0 0;
+  }
+  @media (max-width: 400px) {
+    .footer-links {
+      flex-direction: column;
+    }
+  }
+</style>
