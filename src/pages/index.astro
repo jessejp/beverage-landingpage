@@ -6,11 +6,15 @@ import DrinkVariationBanner from "../sections/DrinkVariationBanner.astro";
 import BenefitsSection from "../sections/BenefitsSection.astro";
 import MailingList from "../sections/MailingList.astro";
 import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
 ---
 
 <Layout title="SODIPOP">
-  <main>
+  <header>
+    <Nav />
     <Hero />
+  </header>
+  <main>
     <CarouselSection />
     <BenefitsSection />
     <MailingList />
@@ -20,6 +24,10 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style is:global>
+  header {
+    position: relative;
+    background: #fbe1ec;
+  }
   main {
     overflow: hidden;
   }
@@ -58,22 +66,7 @@ import Footer from "../components/Footer.astro";
 
   p {
     font-family: "Inter-Regular", sans-serif;
-    font-size: 18pt;
-  }
-  button.primary {
-    background: #ffffff;
-    border-radius: 0.35rem;
-    padding: 0.8em 2em;
-    font-size: 1.35rem;
-    line-height: 1.35rem;
-    cursor: pointer;
-  }
-  button.primary:hover {
-    background: #ffffff;
-  }
-  button.primary:active {
-    transform: translateY(2px);
-    box-shadow: black 3px 3px 1px;
+    font-size: clamp(10pt, 10pt + 1vw, 18pt);
   }
 
   section.half-n-half {

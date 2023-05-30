@@ -114,6 +114,13 @@ const slidesWithClones = [
     carousel.addEventListener("mousemove", drag);
     carousel.addEventListener("touchmove", drag);
 
+    carousel.addEventListener("mouseleave", () => {
+      if (isDragging) {
+        dragEnd();
+      }
+        document.body.style.cursor = "default";
+    });
+
     function updateSlideWidthOffset(element) {
       return element.offsetWidth;
     }
