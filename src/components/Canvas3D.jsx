@@ -19,11 +19,11 @@ const Canvas3D = () => {
           shadows={false}
           environment={"warehouse"}
           intensity={0.1}
-          center={{ precise: false }}
+          center={{ precise: false  }}
         >
           <OrbitControls enableZoom={false} enablePan={false} />
           <Suspense fallback={null}>
-            <Can3D rotation={[-0.1, 0.0, 0.2]} />
+            <Can3D position={[0, -1, 0]} rotation={[-0.1, 0.0, 0.2]} />
           </Suspense>
         </Stage>
       </Canvas>
