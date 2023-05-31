@@ -5,15 +5,23 @@ import { Stage, OrbitControls } from "@react-three/drei";
 
 const Canvas3D = () => {
   return (
-    <Suspense fallback={<img className="hero-image" src="/assets/products/SweetStrawberry_Hero.webp" />}>
+    <Suspense
+      fallback={
+        <img
+          className="hero-image"
+          src="/assets/products/SweetStrawberry_Hero.webp"
+        />
+      }
+    >
       <Canvas camera={{ fov: 45 }}>
-        <OrbitControls enableZoom={false} />
         <Stage
           castShadow={false}
           shadows={false}
           environment={"warehouse"}
           intensity={0.1}
+          center={{ precise: false }}
         >
+          <OrbitControls enableZoom={false} enablePan={false} />
           <Suspense fallback={null}>
             <Can3D rotation={[-0.1, 0.0, 0.2]} />
           </Suspense>
