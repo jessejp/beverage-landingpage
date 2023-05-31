@@ -1,12 +1,13 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Can3D from "./Can3D";
-import { Stage } from "@react-three/drei";
+import { Stage, OrbitControls } from "@react-three/drei";
 
 const Canvas3D = () => {
   return (
     <Suspense fallback={<img className="hero-image" src="/assets/products/SweetStrawberry_Hero.webp" />}>
       <Canvas camera={{ fov: 45 }}>
+        <OrbitControls enableZoom={false} />
         <Stage
           castShadow={false}
           shadows={false}
