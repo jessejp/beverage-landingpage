@@ -23,7 +23,7 @@ const Canvas3D = () => {
         >
           <OrbitControls enableZoom={false} enablePan={false} />
           <Suspense fallback={null}>
-            <Can3D rotation={[-0.1, 0.0, 0.2]} />
+            <Can3D position={[0, -1.1, 0]} rotation={[-0.1, 0.0, 0.2]} />
           </Suspense>
         </Stage>
       </Canvas>
