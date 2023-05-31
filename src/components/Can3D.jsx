@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-const modelPath = "/assets/can_strawberry.glb";
+const modelPath = "/assets/can_v3.glb";
 
 const Can3D = (props) => {
   const group = useRef();
@@ -24,10 +24,10 @@ const Can3D = (props) => {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="Can" position={[0, 0, 0]} ref={canGroup}>
+        <group name="CanV3" position={[0, 0, 0]} ref={canGroup}>
           <mesh
-            name="Can"
-            geometry={nodes.Can.geometry}
+            name="CanV3"
+            geometry={nodes.CanV3.geometry}
             material={materials.can}
           />
         </group>
