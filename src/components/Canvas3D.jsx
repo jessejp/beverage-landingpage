@@ -13,21 +13,13 @@ const Canvas3D = () => {
         />
       }
     >
-      <Canvas
-        camera={{ fov: 45 }}
-        onCreated={() => {
-          // This is a hack to activate centering of the canvas
-          setTimeout(() => {
-          window.scrollTo(0, 1);
-          }, 50);
-        }}
-      >
+      <Canvas camera={{ fov: 45 }}>
         <Stage
           castShadow={false}
           shadows={false}
           environment={"warehouse"}
           intensity={0.1}
-          center={{ precise: false, disable: false }}
+          center={{ precise: false }}
         >
           <OrbitControls enableZoom={false} enablePan={false} />
           <Suspense fallback={null}>
