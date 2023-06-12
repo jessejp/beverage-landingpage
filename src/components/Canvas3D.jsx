@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Can3D from "./Can3D";
-import { Stage } from "@react-three/drei";
+import { Stage, Environment } from "@react-three/drei";
 
 const Canvas3D = () => {
   return (
@@ -10,9 +10,9 @@ const Canvas3D = () => {
         <Stage
           castShadow={false}
           shadows={false}
-          environment={"warehouse"}
-          intensity={0.1}
+          intensity={1}
         >
+          <Environment  files={'assets/empty_warehouse_01_1k.hdr'} />
           <Suspense fallback={null}>
             <Can3D rotation={[-0.1, 0.0, 0.2]} />
           </Suspense>
