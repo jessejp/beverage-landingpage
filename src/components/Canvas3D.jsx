@@ -18,6 +18,7 @@ const Canvas3D = () => {
           castShadow={false}
           shadows={false}
           intensity={1}
+          environment={null}
         >
           <OrbitControls enableZoom={false} enablePan={false} />
           <Environment  files={'assets/empty_warehouse_01_1k.hdr'} />
