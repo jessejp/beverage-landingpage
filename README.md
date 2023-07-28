@@ -6,5 +6,5 @@ A page with a colorful design, including a 3D Hero element implemented with Reac
 
 
 
-1. [Link to live project: Sodipop](https://sodipop-beverage-landing-page-git-non-3d-hero-jessejp.vercel.app/)
-2. [Link to live project: Sodipop + 3D Hero banner](https://sodipop-beverage-landing-page.vercel.app)
+1. [Link to live project: Sodipop](https://sodipop-beverage-landing-page.vercel.app)
+2. [Hero with static image version](https://sodipop-beverage-landing-page-git-non-3d-hero-jessejp.vercel.app/)
